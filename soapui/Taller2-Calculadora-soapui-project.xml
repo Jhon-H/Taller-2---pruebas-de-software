@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9f2b7b1a-0000-4a00-8b00-calc00000001" activeEnvironment="Default"
+    name="Taller2-Calculadora" resourceRoot="" soapui-version="5.7.0"
+    xmlns:con="http://eviware.com"
+    xmlns:xsi="http://w3.org">
+  
+  <con:settings/>
+
+  <con:interface xsi:type="con:RestService" id="rest-calculadora" name="API Calculadora" definition="">
+    <con:settings/>
+    <con:endpoints>
+      <con:endpoint>http://localhost:5001</con:endpoint>
+    </con:endpoints>
+    <con:resource id="res-sumar" name="sumar" path="/sumar">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>a</con:name>
+          <con:style>QUERY</con:style>
+          <con:type>xsd:string</con:type>
+        </con:parameter>
+        <con:parameter>
+          <con:name>b</con:name>
+          <con:style>QUERY</con:style>
+          <con:type>xsd:string</con:type>
+        </con:parameter>
+      </con:parameters>
+      <con:method id="met-sumar" name="Sumar" method="GET">
+        <con:settings/>
+        <con:request name="Sumar - Positivos" id="req-sumar-pos">
+          <con:settings/>
+          <con:endpoint>http://localhost:5001</con:endpoint>
+          <con:parameters>
+            <con:entry key="a" value="5"/>
+            <con:entry key="b" value="3"/>
+          </con:parameters>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+
+  <con:testSuite id="ts-calculadora" name="Calculadora TestSuite">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="tc-sumar" name="TC01 - Sumar" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Sumar - Positivos" id="step-sumar-pos">
+        <con:settings/>
+        <con:config service="API Calculadora" resourcePath="/sumar" methodName="Sumar" xsi:type="con:RestRequestStep">
+          <con:restRequest name="Sumar - Positivos" id="step-req-sumar-pos" method="GET">
+            <con:settings/>
+            <con:endpoint>http://localhost:5001</con:endpoint>
+            <con:parameters>
+              <con:entry key="a" value="5"/>
+              <con:entry key="b" value="3"/>
+            </con:parameters>
+            <con:assertion type="Valid HTTP Status Codes" id="step-assert-sumar-pos-status" name="Valid HTTP Status Codes">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="step-assert-sumar-pos-json" name="JsonPath Match">
+              <con:configuration>
+                <path>$.resultado</path>
+                <content>8.0</content>
+              </con:configuration>
+            </con:assertion>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+    </con:testCase>
+  </con:testSuite>
+
+  <con:properties/>
+
+</con:soapui-project>

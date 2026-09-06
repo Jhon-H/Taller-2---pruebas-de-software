@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Reportes locales de pytest (se versiona solo evidencias/ ya generada)
+.coverage
+htmlcov/
+
+# Java / Maven (serenity/)
+serenity/target/
+serenity/.mvn/
+*.class
+
+# SoapUI (logs y proyectos generados localmente)
+soapui/*-log.xml
+soapui/soapui-error-log.txt
+
+# IDE / SO
+.idea/
+.vscode/
+*.iml
+.DS_Store

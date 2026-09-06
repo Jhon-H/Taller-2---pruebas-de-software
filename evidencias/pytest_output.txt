@@ -1,0 +1,42 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+metadata: {'Python': '3.11.15', 'Platform': 'Linux-6.18.44-fc-v24-x86_64-with-glibc2.39', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.13.0', 'metadata': '3.1.1', 'html': '4.2.0'}, 'JAVA_HOME': '/usr/lib/jvm/java-21-openjdk-amd64'}
+rootdir: /home/claude/taller2-calculadora
+plugins: anyio-4.13.0, metadata-3.1.1, html-4.2.0
+collecting ... collected 31 items
+
+tests/test_api.py::test_index PASSED                                     [  3%]
+tests/test_api.py::test_api_sumar_positivos PASSED                       [  6%]
+tests/test_api.py::test_api_sumar_negativos PASSED                       [  9%]
+tests/test_api.py::test_api_restar_positivos PASSED                      [ 12%]
+tests/test_api.py::test_api_restar_negativos PASSED                      [ 16%]
+tests/test_api.py::test_api_multiplicar_positivos PASSED                 [ 19%]
+tests/test_api.py::test_api_multiplicar_negativos PASSED                 [ 22%]
+tests/test_api.py::test_api_dividir_positivos PASSED                     [ 25%]
+tests/test_api.py::test_api_dividir_negativos PASSED                     [ 29%]
+tests/test_api.py::test_api_dividir_por_cero PASSED                      [ 32%]
+tests/test_api.py::test_api_parametros_faltantes PASSED                  [ 35%]
+tests/test_api.py::test_api_parametros_no_numericos PASSED               [ 38%]
+tests/test_operations.py::test_sum_positive_numbers PASSED               [ 41%]
+tests/test_operations.py::test_sum_negative_numbers PASSED               [ 45%]
+tests/test_operations.py::test_sum_with_zero PASSED                      [ 48%]
+tests/test_operations.py::test_subtract_positive_numbers PASSED          [ 51%]
+tests/test_operations.py::test_subtract_negative_numbers PASSED          [ 54%]
+tests/test_operations.py::test_subtract_resulting_in_negative PASSED     [ 58%]
+tests/test_operations.py::test_multiply_positive_numbers PASSED          [ 61%]
+tests/test_operations.py::test_multiply_negative_numbers PASSED          [ 64%]
+tests/test_operations.py::test_multiply_positive_by_negative PASSED      [ 67%]
+tests/test_operations.py::test_multiply_by_zero PASSED                   [ 70%]
+tests/test_operations.py::test_divide_positive_numbers PASSED            [ 74%]
+tests/test_operations.py::test_divide_negative_numbers PASSED            [ 77%]
+tests/test_operations.py::test_divide_positive_by_negative PASSED        [ 80%]
+tests/test_operations.py::test_divide_by_zero PASSED                     [ 83%]
+tests/test_operations.py::test_divide_zero_by_number PASSED              [ 87%]
+tests/test_operations.py::test_operations_reject_non_numeric_input[sumar] PASSED [ 90%]
+tests/test_operations.py::test_operations_reject_non_numeric_input[restar] PASSED [ 93%]
+tests/test_operations.py::test_operations_reject_non_numeric_input[multiplicar] PASSED [ 96%]
+tests/test_operations.py::test_operations_reject_non_numeric_input[dividir] PASSED [100%]
+
+- Generated html report: file:///home/claude/taller2-calculadora/evidencias/reporte_pytest.html -
+============================== 31 passed in 0.16s ==============================
