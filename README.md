@@ -43,8 +43,7 @@ python -m pytest tests/test_api.py -v
 # Requiere la API corriendo (python app.py) y SoapUI Open Source instalado:
 # https://www.soapui.org/downloads/soapui/
 # Abrir SoapUI -> File > Import Project -> soapui/Taller2-Calculadora-soapui-project.xml
-# Ya trae un caso completo funcionando (Sumar positivos); clona ese request/step
-# dentro de SoapUI para el resto de casos, ver seccion 2 mas abajo
+# Ya trae los 4 TestCases y 9 TestSteps armados (2 por operacion, 3 en Dividir)
 
 # --- 3. Pruebas E2E (Serenity BDD) ---
 # Requiere Java 11+ y Maven: brew install openjdk@21 maven
@@ -63,30 +62,15 @@ Tests: 19 pruebas unitarias, todas ejecutadas y en verde.
 
 ## 2. Pruebas de integracion (pytest + SoapUI)
 
-Resumen: validan que la API HTTP responde bien (codigo, JSON), con la app corriendo o via test client de Flask.
-Herramienta: pytest (Flask test client) y SoapUI.
-Tests: 12 pruebas de integracion (pytest) + 4 endpoints con casos positivo/negativo/error en SoapUI.
+**Resumen**: validan que la API HTTP responde bien (codigo, JSON), con la app corriendo o via test client de Flask.
 
-`soapui/Taller2-Calculadora-soapui-project.xml` ya trae armado y funcionando un caso completo (`TC01 - Sumar` -> `Sumar - Positivos`, 5+3=8, con sus assertions). Con la API corriendo en :5001:
+**Herramienta**: pytest (Flask test client) y SoapUI.
 
-1. `File > Import Project` -> selecciona el archivo. Corre ese TestCase (boton ▶) y confirma que el step queda en verde.
-2. Para el resto de casos: clic derecho sobre el step `Sumar - Positivos` -> `Clone` -> cambia el nombre y los valores de `a`/`b` en la pestaña de parametros -> ajusta el assertion `JsonPath Match` con el resultado esperado. Repite para cada fila de la tabla.
-3. Para Restar/Multiplicar/Dividir crea un TestCase nuevo (clic derecho sobre el TestSuite -> `New TestCase`) y clona el mismo step dentro, cambiando la URL del endpoint (`/restar`, `/multiplicar`, `/dividir`).
-4. Corre el TestSuite completo (boton ▶) y guarda la captura de todo en verde como `evidencias/pruebas-soap.png`.
+**Tests**: 8 TestSteps en SoapUI (2 por operacion).
 
-| Caso | a | b | Resultado esperado | Codigo HTTP |
-|---|---|---|---|---|
-| Sumar positivos (ya armado) | 5 | 3 | `resultado: 8` | 200 |
-| Sumar negativos | -5 | -3 | `resultado: -8` | 200 |
-| Restar positivos | 10 | 4 | `resultado: 6` | 200 |
-| Restar negativos | -10 | -4 | `resultado: -6` | 200 |
-| Multiplicar positivos | 6 | 7 | `resultado: 42` | 200 |
-| Multiplicar negativos | -6 | -7 | `resultado: 42` | 200 |
-| Dividir positivos | 20 | 5 | `resultado: 4` | 200 |
-| Dividir negativos | -20 | -5 | `resultado: 4` | 200 |
-| Dividir entre cero | 20 | 0 | `error: "No es posible dividir entre cero"` | 400 |
+![Evidencia soapui](evidencias/evidencia_soapui.png)
+![Evidencia soapui2](evidencias/evidencia_soapui2.png)
 
-Evidencia SoapUI: `evidencias/pruebas-soap.png` (pendiente de agregar).
 
 ## 3. Pruebas E2E (Serenity BDD)
 

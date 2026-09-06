@@ -1,76 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="9f2b7b1a-0000-4a00-8b00-calc00000001" activeEnvironment="Default"
-    name="Taller2-Calculadora" resourceRoot="" soapui-version="5.7.0"
-    xmlns:con="http://eviware.com"
-    xmlns:xsi="http://w3.org">
-  
-  <con:settings/>
-
-  <con:interface xsi:type="con:RestService" id="rest-calculadora" name="API Calculadora" definition="">
-    <con:settings/>
-    <con:endpoints>
-      <con:endpoint>http://localhost:5001</con:endpoint>
-    </con:endpoints>
-    <con:resource id="res-sumar" name="sumar" path="/sumar">
-      <con:settings/>
-      <con:parameters>
-        <con:parameter>
-          <con:name>a</con:name>
-          <con:style>QUERY</con:style>
-          <con:type>xsd:string</con:type>
-        </con:parameter>
-        <con:parameter>
-          <con:name>b</con:name>
-          <con:style>QUERY</con:style>
-          <con:type>xsd:string</con:type>
-        </con:parameter>
-      </con:parameters>
-      <con:method id="met-sumar" name="Sumar" method="GET">
-        <con:settings/>
-        <con:request name="Sumar - Positivos" id="req-sumar-pos">
-          <con:settings/>
-          <con:endpoint>http://localhost:5001</con:endpoint>
-          <con:parameters>
-            <con:entry key="a" value="5"/>
-            <con:entry key="b" value="3"/>
-          </con:parameters>
-        </con:request>
-      </con:method>
-    </con:resource>
-  </con:interface>
-
-  <con:testSuite id="ts-calculadora" name="Calculadora TestSuite">
-    <con:settings/>
-    <con:runType>SEQUENTIAL</con:runType>
-    <con:testCase id="tc-sumar" name="TC01 - Sumar" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" searchProperties="true">
-      <con:settings/>
-      <con:testStep type="restrequest" name="Sumar - Positivos" id="step-sumar-pos">
-        <con:settings/>
-        <con:config service="API Calculadora" resourcePath="/sumar" methodName="Sumar" xsi:type="con:RestRequestStep">
-          <con:restRequest name="Sumar - Positivos" id="step-req-sumar-pos" method="GET">
-            <con:settings/>
-            <con:endpoint>http://localhost:5001</con:endpoint>
-            <con:parameters>
-              <con:entry key="a" value="5"/>
-              <con:entry key="b" value="3"/>
-            </con:parameters>
-            <con:assertion type="Valid HTTP Status Codes" id="step-assert-sumar-pos-status" name="Valid HTTP Status Codes">
-              <con:configuration>
-                <codes>200</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="JsonPath Match" id="step-assert-sumar-pos-json" name="JsonPath Match">
-              <con:configuration>
-                <path>$.resultado</path>
-                <content>8.0</content>
-              </con:configuration>
-            </con:assertion>
-          </con:restRequest>
-        </con:config>
-      </con:testStep>
-    </con:testCase>
-  </con:testSuite>
-
-  <con:properties/>
-
-</con:soapui-project>
+<con:soapui-project id="a50d298a-113b-4b0f-a52c-ef33e23505da" activeEnvironment="Default" name="Taller 2" resourceRoot="" soapui-version="5.10.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="b46f9cce-5b97-4e23-aa50-0c8a1d85dd5a" wadlVersion="http://wadl.dev.java.net/2009/02" name="API Calculadora - Taller 2" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:description>API REST de la calculadora (suma, resta, multiplicacion, division).</con:description><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://localhost:5001</con:endpoint></con:endpoints><con:resource name="/sumar" path="/sumar" id="89e07897-d347-4e2e-a346-c50404741122"><con:settings/><con:parameters/><con:method name="sumar" id="237613dc-f7e9-4d4a-89fb-b1839494e5f9" method="GET"><con:description>Sumar dos numeros</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>a</con:name><con:style>QUERY</con:style><con:description xsi:nil="true"/></con:parameter><con:parameter required="true"><con:name>b</con:name><con:style>QUERY</con:style><con:description xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:request name="Request 1" id="d8c38c07-90a3-4e4f-9323-08f5f3563112" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/sumar</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="5"/>
+  <con:entry key="b" value="3"/>
+</con:parameters></con:request></con:method></con:resource><con:resource name="/restar" path="/restar" id="124d9744-a9c4-4e93-b7f0-91b47c2fc1bb"><con:settings/><con:parameters/><con:method name="restar" id="d2da6f7a-fb9d-4800-ab53-4603b1a1b322" method="GET"><con:description>Restar dos numeros</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>a</con:name><con:style>QUERY</con:style><con:description xsi:nil="true"/></con:parameter><con:parameter required="true"><con:name>b</con:name><con:style>QUERY</con:style><con:description xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:request name="Request 1" id="5ac14f1b-715e-4066-bd9c-689985c40105" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/restar</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="10"/>
+  <con:entry key="b" value="4"/>
+</con:parameters></con:request></con:method></con:resource><con:resource name="/multiplicar" path="/multiplicar" id="849e3f37-be45-4f78-aae4-aa3f0bef54e1"><con:settings/><con:parameters/><con:method name="multiplicar" id="de425913-a284-4707-acb7-9f432f5821ea" method="GET"><con:description>Multiplicar dos numeros</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>a</con:name><con:style>QUERY</con:style><con:description xsi:nil="true"/></con:parameter><con:parameter required="true"><con:name>b</con:name><con:style>QUERY</con:style><con:description xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:request name="Request 1" id="e9d180c5-a2ae-467b-ae47-12f20d31b346" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/multiplicar</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="6"/>
+  <con:entry key="b" value="7"/>
+</con:parameters></con:request></con:method></con:resource><con:resource name="/dividir" path="/dividir" id="0c094af5-0f55-48fb-b725-69a8f14a1c06"><con:settings/><con:parameters/><con:method name="dividir" id="18dbc1e0-3cd1-4622-9228-718d91ec793f" method="GET"><con:description>Dividir dos numeros</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>a</con:name><con:style>QUERY</con:style><con:description xsi:nil="true"/></con:parameter><con:parameter required="true"><con:name>b</con:name><con:style>QUERY</con:style><con:description xsi:nil="true"/></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:request name="Request 1" id="da0d574c-3944-4b01-992f-32dda308fc5b" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/dividir</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="20"/>
+  <con:entry key="b" value="5"/>
+</con:parameters></con:request></con:method></con:resource></con:interface><con:testSuite id="20f63a02-4f0e-4391-8381-72a3ef7386a8" name="Calculadora TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="tc-sumar-0001-0001-0001-000000000001" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC01 - Sumar" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Sumar - Positivos" id="step-sumar-pos-0000-0000-0000-000000000001"><con:settings/><con:config service="API Calculadora - Taller 2" methodName="sumar" resourcePath="/sumar" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Sumar - Positivos" id="req-sumar-pos-0000-0000-0000-000000000001" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/sumar</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="5"/>
+  <con:entry key="b" value="3"/>
+</con:parameters><con:assertion type="Valid HTTP Status Codes" id="a-sumar-pos-status"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a-sumar-pos-json"><con:configuration><path>$.resultado</path><content>8.0</content></con:configuration></con:assertion></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Sumar - Negativos" id="step-sumar-neg-0000-0000-0000-000000000002"><con:settings/><con:config service="API Calculadora - Taller 2" methodName="sumar" resourcePath="/sumar" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Sumar - Negativos" id="req-sumar-neg-0000-0000-0000-000000000002" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/sumar</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="-5"/>
+  <con:entry key="b" value="-3"/>
+</con:parameters><con:assertion type="Valid HTTP Status Codes" id="a-sumar-neg-status"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a-sumar-neg-json"><con:configuration><path>$.resultado</path><content>-8.0</content></con:configuration></con:assertion></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="tc-restar-0001-0001-0001-000000000002" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC02 - Restar" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Restar - Positivos" id="step-restar-pos-0000-0000-0000-000000000003"><con:settings/><con:config service="API Calculadora - Taller 2" methodName="restar" resourcePath="/restar" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Restar - Positivos" id="req-restar-pos-0000-0000-0000-000000000003" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/restar</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="10"/>
+  <con:entry key="b" value="4"/>
+</con:parameters><con:assertion type="Valid HTTP Status Codes" id="a-restar-pos-status"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a-restar-pos-json"><con:configuration><path>$.resultado</path><content>6.0</content></con:configuration></con:assertion></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Restar - Negativos" id="step-restar-neg-0000-0000-0000-000000000004"><con:settings/><con:config service="API Calculadora - Taller 2" methodName="restar" resourcePath="/restar" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Restar - Negativos" id="req-restar-neg-0000-0000-0000-000000000004" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/restar</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="-10"/>
+  <con:entry key="b" value="-4"/>
+</con:parameters><con:assertion type="Valid HTTP Status Codes" id="a-restar-neg-status"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a-restar-neg-json"><con:configuration><path>$.resultado</path><content>-6.0</content></con:configuration></con:assertion></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="tc-multiplicar-0001-0001-000000000003" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC03 - Multiplicar" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Multiplicar - Positivos" id="step-mult-pos-0000-0000-0000-000000000005"><con:settings/><con:config service="API Calculadora - Taller 2" methodName="multiplicar" resourcePath="/multiplicar" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Multiplicar - Positivos" id="req-mult-pos-0000-0000-0000-000000000005" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/multiplicar</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="6"/>
+  <con:entry key="b" value="7"/>
+</con:parameters><con:assertion type="Valid HTTP Status Codes" id="a-mult-pos-status"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a-mult-pos-json"><con:configuration><path>$.resultado</path><content>42.0</content></con:configuration></con:assertion></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Multiplicar - Negativos" id="step-mult-neg-0000-0000-0000-000000000006"><con:settings/><con:config service="API Calculadora - Taller 2" methodName="multiplicar" resourcePath="/multiplicar" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Multiplicar - Negativos" id="req-mult-neg-0000-0000-0000-000000000006" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/multiplicar</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="-6"/>
+  <con:entry key="b" value="-7"/>
+</con:parameters><con:assertion type="Valid HTTP Status Codes" id="a-mult-neg-status"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a-mult-neg-json"><con:configuration><path>$.resultado</path><content>42.0</content></con:configuration></con:assertion></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="tc-dividir-0001-0001-0001-000000000004" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC04 - Dividir" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Dividir - Positivos" id="step-div-pos-0000-0000-0000-000000000007"><con:settings/><con:config service="API Calculadora - Taller 2" methodName="dividir" resourcePath="/dividir" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Dividir - Positivos" id="req-div-pos-0000-0000-0000-000000000007" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/dividir</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="20"/>
+  <con:entry key="b" value="5"/>
+</con:parameters><con:assertion type="Valid HTTP Status Codes" id="a-div-pos-status"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a-div-pos-json"><con:configuration><path>$.resultado</path><content>4.0</content></con:configuration></con:assertion></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Dividir - Negativos" id="step-div-neg-0000-0000-0000-000000000008"><con:settings/><con:config service="API Calculadora - Taller 2" methodName="dividir" resourcePath="/dividir" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Dividir - Negativos" id="req-div-neg-0000-0000-0000-000000000008" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/dividir</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="-20"/>
+  <con:entry key="b" value="-5"/>
+</con:parameters><con:assertion type="Valid HTTP Status Codes" id="a-div-neg-status"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a-div-neg-json"><con:configuration><path>$.resultado</path><content>4.0</content></con:configuration></con:assertion></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Dividir - Entre cero" id="step-div-cero-0000-0000-0000-000000000009"><con:settings/><con:config service="API Calculadora - Taller 2" methodName="dividir" resourcePath="/dividir" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Dividir - Entre cero" id="req-div-cero-0000-0000-0000-000000000009" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5001</con:endpoint><con:request/><con:originalUri>http://localhost/dividir</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="a" value="20"/>
+  <con:entry key="b" value="0"/>
+</con:parameters><con:assertion type="Valid HTTP Status Codes" id="a-div-cero-status"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a-div-cero-json"><con:configuration><path>$.error</path><content>No es posible dividir entre cero</content></con:configuration></con:assertion></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
